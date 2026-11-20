@@ -24,16 +24,23 @@ def render(svg: bytes, size: int) -> QImage:
 
 def main():
     app = QGuiApplication(sys.argv)  # noqa: F841
-    svg = open(os.path.join(ASSETS, "logo.svg"), "rb").read()
-    for s in (16, 24, 32, 48, 64, 128, 256, 512):
-        render(svg, s).save(os.path.join(ASSETS, f"logo_{s}.png"))
+    master = os.path.join(ASSETS, "logo_master.png")   # the official artwork (transparent PNG); logo.svg is the old fallback
+    if os.path.exists(master):
+        src = Image.open(master).convert("RGBA")
+        for s in (16, 24, 32, 48, 64, 128, 256, 512):
+            src.resize((s, s), Image.LANCZOS).save(os.path.join(ASSETS, f"logo_{s}.png"))
+        src.resize((256, 256), Image.LANCZOS).save(os.path.join(ASSETS, "logo.png"))
+    else:
+        svg = open(os.path.join(ASSETS, "logo.svg"), "rb").read()
+        for s in (16, 24, 32, 48, 64, 128, 256, 512):
+            render(svg, s).save(os.path.join(ASSETS, f"logo_{s}.png"))
     big = Image.open(os.path.join(ASSETS, "logo_256.png"))
     big.save(os.path.join(ASSETS, "logo.ico"), sizes=[(16, 16), (24, 24), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])
     # installer wizard images (Inno Setup): large 164x314 side panel and 55x55 small
     side = Image.new("RGB", (164, 314), (40, 36, 92))
     for y in range(314):
         t = y / 313
-        c = (int(76 + (155 - 76) * t), int(125 + (77 - 125) * t), int(255 + (234 - 255) * t))
+        c = (int(226 + (122 - 226) * t), int(38 + (10 - 38) * t), int(56 + (32 - 56) * t))   # red, like the logo
         for x in range(164):
             side.putpixel((x, y), c)
     logo = Image.open(os.path.join(ASSETS, "logo_128.png")).convert("RGBA")

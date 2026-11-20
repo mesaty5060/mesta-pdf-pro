@@ -1,4 +1,4 @@
-﻿"""Mesta product identity — one place for names, settings and Windows integration ids.
+"""Mesta product identity — one place for names, settings and Windows integration ids.
 
 Every Mesta app (Mesta PDF Pro, the Mesta downloader, …) follows the same pattern:
   publisher / settings organisation : "Mesta"
@@ -15,7 +15,7 @@ APP_NAME = "Mesta PDF Pro"
 SHORT = "PDF Pro"
 EXE_NAME = "MestaPDFPro"
 PROGID = "Mesta.PDFPro.Document"
-VERSION = "2.2.1"
+VERSION = "2.2.2"
 
 DATA_DIR = os.path.join(os.environ.get("APPDATA", os.path.expanduser("~")), PUBLISHER, SHORT)
 _OLD_DATA_DIR = os.path.join(os.environ.get("APPDATA", os.path.expanduser("~")), "PDFStudio")

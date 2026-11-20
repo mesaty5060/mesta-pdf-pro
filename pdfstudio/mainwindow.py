@@ -80,7 +80,7 @@ class MainWindow(QMainWindow):
         self._was_max = False
 
         self.setWindowTitle(APP_NAME)
-        self.setWindowIcon(QIcon(logo_pixmap(64)))
+        self.setWindowIcon(QIcon(logo_pixmap(256)))
         self.resize(1440, 900)
         self.setAcceptDrops(True)
         self.setDockOptions(QMainWindow.AnimatedDocks)

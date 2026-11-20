@@ -111,15 +111,22 @@ def _logo_file():
     import sys
     bases = [getattr(sys, "_MEIPASS", ""), os.path.dirname(sys.executable),
              os.path.dirname(os.path.dirname(os.path.abspath(__file__)))]
-    for b in bases:
-        p = os.path.join(b, "assets", "logo.svg")
-        if b and os.path.exists(p):
-            return p
+    for name in ("logo_512.png", "logo.svg"):   # official artwork first
+        for b in bases:
+            p = os.path.join(b, "assets", name)
+            if b and os.path.exists(p):
+                return p
     return None
 
 
 def logo_pixmap(size=64) -> QPixmap:
     path = _logo_file()
+    if path and path.endswith(".png"):
+        from PySide6.QtWidgets import QApplication
+        dpr = QApplication.instance().devicePixelRatio() if QApplication.instance() else 1.0
+        pm = QPixmap(path).scaled(int(size * dpr), int(size * dpr), Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        pm.setDevicePixelRatio(dpr)
+        return pm
     if path:
         r = QSvgRenderer(path)
         pm = QPixmap(size, size)
