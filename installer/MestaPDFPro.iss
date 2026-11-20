@@ -2,7 +2,7 @@
 ; Build with build_exe.bat, or:  ISCC.exe /DSrcDir=<pyinstaller dist\MestaPDFPro> installer\MestaPDFPro.iss
 
 #define AppName "Mesta PDF Pro"
-#define AppVersion "2.2.2"
+#define AppVersion "2.2.3"
 #define ExeName "MestaPDFPro.exe"
 #ifndef SrcDir
   #define SrcDir AddBackslash(GetEnv("TEMP")) + "psbuild\dist\MestaPDFPro"

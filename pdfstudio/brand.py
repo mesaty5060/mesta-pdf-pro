@@ -15,7 +15,7 @@ APP_NAME = "Mesta PDF Pro"
 SHORT = "PDF Pro"
 EXE_NAME = "MestaPDFPro"
 PROGID = "Mesta.PDFPro.Document"
-VERSION = "2.2.2"
+VERSION = "2.2.3"
 
 DATA_DIR = os.path.join(os.environ.get("APPDATA", os.path.expanduser("~")), PUBLISHER, SHORT)
 _OLD_DATA_DIR = os.path.join(os.environ.get("APPDATA", os.path.expanduser("~")), "PDFStudio")
