@@ -1,0 +1,10 @@
+# build output (installers are published as GitHub Releases in mesta-releases)
+release/
+build/
+dist/
+__pycache__/
+*.pyc
+*.spec
+# never commit signing keys
+*.pem
+*.pfx
