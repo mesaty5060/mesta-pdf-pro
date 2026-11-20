@@ -2,7 +2,7 @@
 ; Build with build_exe.bat, or:  ISCC.exe /DSrcDir=<pyinstaller dist\MestaPDFPro> installer\MestaPDFPro.iss
 
 #define AppName "Mesta PDF Pro"
-#define AppVersion "2.2.3"
+#define AppVersion "2.2.4"
 #define ExeName "MestaPDFPro.exe"
 #ifndef SrcDir
   #define SrcDir AddBackslash(GetEnv("TEMP")) + "psbuild\dist\MestaPDFPro"
@@ -58,6 +58,8 @@ Name: "assocpdf"; Description: "{cm:TaskAssoc}"; GroupDescription: "{cm:TaskGrou
 
 [Files]
 Source: "{#SrcDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+; free software (GNU AGPL v3): the license travels with the program; source code: https://github.com/mesaty5060/mesta-pdf-pro
+Source: "..\LICENSE"; DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\Mesta\{#AppName}"; Filename: "{app}\{#ExeName}"

@@ -1,5 +1,31 @@
 # Mesta PDF Pro — قارئ ومحرر PDF احترافي
 
+**Free, open-source PDF reader & editor for Windows** (Python + PySide6 + PyMuPDF).
+Download the installer: https://github.com/mesaty5060/mesta-releases
+
+## License / الترخيص
+Copyright © 2026 Mesta.
+
+Mesta PDF Pro is free software: you can redistribute it and/or modify it under the terms of the
+**GNU Affero General Public License v3** as published by the Free Software Foundation (see [LICENSE](LICENSE)).
+It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
+
+برنامج حر ومفتوح المصدر بترخيص **GNU AGPL v3**: تقدر تستخدمه وتشاركه وتعدّله، بشرط إن أي نسخة معدّلة تتوزع
+يكون كودها متاح بنفس الترخيص.
+
+Third-party components:
+| Component | License |
+|---|---|
+| [PyMuPDF](https://github.com/pymupdf/PyMuPDF) / MuPDF (Artifex) | GNU AGPL v3 |
+| [Qt for Python (PySide6)](https://doc.qt.io/qtforpython/) | GNU LGPL v3 |
+| [NumPy](https://numpy.org) | BSD 3-Clause |
+| Tesseract language data (`tessdata/`, from [tesseract-ocr/tessdata](https://github.com/tesseract-ocr/tessdata)) | Apache 2.0 |
+
+## Build from source
+1. Python 3.12: `pip install -r requirements.txt`
+2. Run: `python main.py` (or `run.bat`)
+3. Installer: `build_exe.bat` (PyInstaller + [Inno Setup 6](https://jrsoftware.org/isinfo.php)) → `release/MestaPDFPro-Setup-x.y.z.exe`
+
 ## التشغيل
 - دبل-كليك على `run.bat`
 - أو من اختصار **Mesta PDF Pro** على سطح المكتب / قائمة ابدأ

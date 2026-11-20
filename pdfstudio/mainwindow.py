@@ -258,6 +258,7 @@ class MainWindow(QMainWindow):
         self._icon_actions.append((a, "default_app"))
         sm.addSeparator()
         sm.addAction(tr("التحقق من التحديثات"), self.check_updates)
+        sm.addAction(tr("الكود المصدري والترخيص"), self.show_license)
         self.b_settings.setMenu(sm)
         self.b_collapse = self._side_button("next", "  " + tr("طي القائمة"), slot=self.toggle_sidebar)
         self.b_collapse.setToolTip(tr("طي / فتح القائمة (Ctrl+B)"))
@@ -2047,6 +2048,22 @@ class MainWindow(QMainWindow):
         QMessageBox.information(
             self, tr("التحقق من التحديثات"),
             tr("الإصدار الحالي: {v}\n\nالتحديثات التلقائية لكل برامج Mesta متاحة عبر Mesta Launcher — ثبّته لتصلك التحديثات الموقّعة تلقائياً.").format(v=VERSION))
+
+    def show_license(self):
+        """Mesta PDF Pro is free software (GNU AGPL v3, as PyMuPDF requires): say so and link to the source."""
+        from PySide6.QtCore import QUrl
+        from PySide6.QtGui import QDesktopServices
+
+        from .brand import LICENSE_NAME, SOURCE_URL, VERSION
+        box = QMessageBox(self)
+        box.setWindowTitle(tr("الكود المصدري والترخيص"))
+        box.setIcon(QMessageBox.Icon.Information)
+        box.setText(tr('{app} {v} برنامج حر ومفتوح المصدر بترخيص {lic}.\nيمكنك استخدامه ومشاركته وتعديله بحرية، والكود المصدري الكامل متاح للجميع:\n{url}\n\nيستخدم: PyMuPDF / MuPDF (AGPL v3)، Qt و PySide6 (LGPL v3)، وبيانات لغات Tesseract (Apache 2.0). نص الترخيص الكامل في ملف LICENSE.txt بمجلد البرنامج.').format(app=APP_NAME, v=VERSION, lic=LICENSE_NAME, url=SOURCE_URL))
+        open_btn = box.addButton(tr("فتح صفحة الكود"), QMessageBox.ButtonRole.ActionRole)
+        box.addButton(QMessageBox.StandardButton.Close)
+        box.exec()
+        if box.clickedButton() is open_btn:
+            QDesktopServices.openUrl(QUrl(SOURCE_URL))
 
     def toggle_auto_ocr(self, on):
         self.settings.setValue("auto_ocr", "true" if on else "false")

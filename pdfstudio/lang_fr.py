@@ -553,4 +553,8 @@ T = {
     'جارٍ التحقق من التحديثات في Mesta Launcher…': 'Recherche de mises à jour dans Mesta Launcher…',
     'الإصدار الحالي: {v}\n\nالتحديثات التلقائية لكل برامج Mesta متاحة عبر Mesta Launcher — ثبّته لتصلك التحديثات الموقّعة تلقائياً.':
         'Version actuelle : {v}\n\nLes mises à jour automatiques de toutes les applications Mesta passent par Mesta Launcher — installez-le pour recevoir automatiquement les mises à jour signées.',
+    'الكود المصدري والترخيص': 'Code source et licence',
+    'فتح صفحة الكود': 'Ouvrir la page du code',
+    '{app} {v} برنامج حر ومفتوح المصدر بترخيص {lic}.\nيمكنك استخدامه ومشاركته وتعديله بحرية، والكود المصدري الكامل متاح للجميع:\n{url}\n\nيستخدم: PyMuPDF / MuPDF (AGPL v3)، Qt و PySide6 (LGPL v3)، وبيانات لغات Tesseract (Apache 2.0). نص الترخيص الكامل في ملف LICENSE.txt بمجلد البرنامج.':
+        "{app} {v} est un logiciel libre et open source sous licence {lic}.\nVous pouvez l'utiliser, le partager et le modifier librement ; le code source complet est accessible à tous :\n{url}\n\nUtilise : PyMuPDF / MuPDF (AGPL v3), Qt et PySide6 (LGPL v3) et les données de langue Tesseract (Apache 2.0). Le texte complet de la licence se trouve dans LICENSE.txt, dans le dossier du programme.",
 }
